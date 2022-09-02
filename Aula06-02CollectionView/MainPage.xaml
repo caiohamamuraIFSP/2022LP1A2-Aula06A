@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Aula06_02CollectionView.ViewModel"
+             x:Class="Aula06_02CollectionView.MainPage">
+    <ContentPage.BindingContext>
+        <vm:AppViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0">
+
+            <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+            
+            <Grid ColumnDefinitions="*, Auto, Auto">
+                <Entry
+                    x:Name="txtInsere"
+                    Text=""
+                    Placeholder="Item para inserir"/>
+                <Button 
+                    Grid.Column="1"
+                    Text="Adicionar"
+                    Command="{Binding AdicionaCommand}"
+                    CommandParameter="{Binding Source=txtInsere, Path=Text}"
+                    />
+                <Button 
+                    Grid.Column="2"
+                    Text="Limpar"
+                    Command="{Binding LimparCommand}"
+                    />
+            </Grid>
+
+            <CollectionView
+                ItemsSource="{Binding Lista}"
+                >
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

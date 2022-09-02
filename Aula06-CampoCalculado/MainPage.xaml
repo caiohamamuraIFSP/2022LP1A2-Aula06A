@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Aula06_CampoCalculado"
+             x:Class="Aula06_CampoCalculado.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:MeuViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Entry
+                Placeholder="Valor em pés"
+                Text="{Binding Pes}"/>
+
+            <Entry
+                Text="{Binding Metros}"
+                />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
